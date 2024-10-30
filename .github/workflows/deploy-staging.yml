@@ -8,7 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    if: contains(github.event.pull_request.labels.*.name, 'stage')
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Echo stage label
+        if: contains(github.event.pull_request.labels.* | map('name') | join(' '), 'stage')
+        run: echo "The 'stage' label is present. Starting the build process."
+
+      - name: Build
+        if: contains(github.event.pull_request.labels.* | map('name') | join(' '), 'stage')
+        run: |
+          echo "Building the app..."
+          # Aquí puedes agregar los pasos de compilación o despliegue necesarios
+
     
 
 
