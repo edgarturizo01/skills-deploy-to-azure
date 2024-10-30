@@ -14,7 +14,7 @@ while (!p2 && p1 !== p2) {
 window.onload = () => {
   document.getElementById("p1Name").innerText = p1;
   document.getElementById("p2Name").innerText = p2;
-  let score1 = 0;
+  let score1 = 10;
   let score2 = 0;
 
   (function playGame(p1, p2) {
